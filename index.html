@@ -2,11 +2,28 @@
 <html ng-app="app">
     
     <head>
-        <script src="node_modules\angular\angular.min.js"></script>
+             
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Angular Material style sheet -->
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+        
+        <!-- Angular Material requires Angular.js Libraries -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+
+        <!-- Angular Material Library -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+
+        <!--<script src="node_modules\angular\angular.min.js"></script>-->
         <script src="app\app.js"></script>
         <script src="app\controller.js"></script>
+   
+  
     </head>
     
+
 <body>
 
 <style>
@@ -26,20 +43,46 @@
         height:200px;
         
     }
-
-    
+   
 </style>
 <div ng-controller="controller">
     
-<h1>Am I  drunk?</h1>
-
     
-<input type="text" ng-model="alcoholconsumed"/>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>
+          <span>Am I  drunk?</span>
+        </h2>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Favorite">
+          <md-icon md-svg-icon="img/icons/favorite.svg" style="color: greenyellow;"></md-icon>
+        </md-button>
+        <md-button class="md-icon-button" aria-label="More">
+          <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar> 
+    
 
-<button style="height:50px;" ng-click="update(alcoholconsumed)"></button>
+<md-input-container class="md-block flex-gt-sm" flex-gt-sm="">
+    <label>Enter Drinks</label>
+    <input ng-model="alcoholconsumed" class="ng-pristine ng-valid md-input ng-touched"><div class="md-errors-spacer"></div>
+</md-input-container>
+          
+
+
+
+<button class="md-raised md-primary md-button md-ink-ripple" type="button" ng-transclude="" 
+aria-label="Primary" ng-click="update(alcoholconsumed);"><span class="ng-scope">Check</span><div class="md-ripple-container"></div></button>
+
+
+
+
 
 
 <p>You have had {{alcoholconsumed}} alcohol consumed</p>
+
+
 <p ng-class="{green : alcoholstate == 'sobar', orange : alcoholstate == 'tippsy', red: alcoholstate == 'locked'}">You are {{alcoholstate}}</p>
 <p ng-if=" alcoholstate == 'tippsy' ||  alcoholstate == 'locked'">
     <h1> {{taxi}} </h1>

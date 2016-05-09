@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    
+    <head>
+        <script src="node_modules\angular\angular.min.js"></script>
+        <script src="app\app.js"></script>
+        <script src="app\controller.js"></script>
+    </head>
+    
+<body>
+
+<style>
+    
+    .green{
+        color:green;
+    }
+    
+    .orange{
+        color: orange;
+    }
+    
+    .red{
+       color: red;
+    }
+    .taxi {
+        height:200px;
+        
+    }
+
+    
+</style>
+<div ng-controller="controller">
+    
+
+
+    
+<input type="text" ng-model="alcoholconsumed"/>
+
+<button style="height:50px;" ng-click="update(alcoholconsumed)"></button>
+
+
+<p>You have had {{alcoholconsumed}} alcohol consumed</p>
+<p ng-class="{green : alcoholstate == 'sobar', orange : alcoholstate == 'tippsy', red: alcoholstate == 'locked'}">You are {{alcoholstate}}</p>
+<p ng-if=" alcoholstate == 'tippsy' ||  alcoholstate == 'locked'">
+    <h1> {{taxi}} </h1>
+    <img ng-if="alcoholstate == 'locked'"  class="taxi" src="http://www.clipartlord.com/wp-content/uploads/2016/03/taxi-cab10.png"/>
+    <button ng-click= "canceltaxi()" ng-if="alcoholstate == 'locked'">Cancel Taxi</button>
+      
+</p>
+
+    
+</p>
+
+
+</div>
+
+</body>
+
+
+</html>

@@ -1,6 +1,5 @@
 
-app.controller("controller", function($scope) {
-    
+app.controller('controller', ['$scope', 'apiService', function($scope, apiService) {
 
 $scope.alcohollimit = 5;
 $scope.alcoholconsumed = 0;
@@ -8,8 +7,12 @@ $scope.alcoholconsumed = 0;
 $scope.taxi = "";
 $scope.alcoholstate = "not sure"
 
-$scope.update = function checkfordrinks(drinks)
+
+$scope.update = function (drinks)
 {  
+    console.log(drinks);
+    
+    
     if(drinks > 0 && drinks < 2)
     {   $scope.taxi = "you should call a taxi";
         $scope.alcoholstate = "tippsy";
@@ -18,13 +21,18 @@ $scope.update = function checkfordrinks(drinks)
     {
         $scope.taxi = "Taxi on route";
         $scope.alcoholstate = "locked";
+        
+        var result = apiService.taxiRequest();
+       
+
+         //console.log(result);
     }
     else{
           $scope.alcoholstate = "sobar";
     }
 }
 
-$scope.canceltaxi = function canceltaxi()
+$scope.canceltaxi = function()
 {
     $scope.taxi = "Taxi cancelled";
     $scope.alcoholstate == "Too drunk too care";
@@ -32,15 +40,11 @@ $scope.canceltaxi = function canceltaxi()
 
 
 
-// $scope.$watch('alcoholstate', function(newValue) {
-//  if(newValue)
-//  {
-     
-     
-//  }
-       
-        
-// });
 
-    
-});
+
+
+}]);
+
+
+
+

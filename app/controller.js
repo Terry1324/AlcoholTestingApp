@@ -8,7 +8,7 @@ $scope.taxi = "";
 $scope.alcoholstate = "not sure"
 
 
-$scope.update = function (drinks)
+$scope.check = function (drinks)
 {  
     console.log(drinks);
     
@@ -37,6 +37,12 @@ $scope.canceltaxi = function()
     $scope.taxi = "Taxi cancelled";
     $scope.alcoholstate == "Too drunk too care";
 }
+
+$scope.test = function () {
+    alert();
+}
+
+
 
 
 

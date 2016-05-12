@@ -6,7 +6,7 @@
 <h1>h1!</h1>
 
 <button class="md-raised md-primary md-button md-ink-ripple" type="button"
-aria-label="Primary" ng-click="update(alcoholconsumed);"><span class="ng-scope">Check</span><div class="md-ripple-container"></div></button>
+aria-label="Primary" ng-click="check(alcoholconsumed);"><span class="ng-scope">Check</span><div class="md-ripple-container"></div></button>
 
 <p>You have had {{alcoholconsumed}} alcohol consumed</p>
 <p ng-class="{green : alcoholstate == 'sobar', orange : alcoholstate == 'tippsy', red: alcoholstate == 'locked'}">You are {{alcoholstate}}</p>
